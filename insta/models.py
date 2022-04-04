@@ -5,6 +5,9 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'profile/')
     bio = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length = 60)
@@ -13,7 +16,18 @@ class Image(models.Model):
     likes = models.IntegerField()
     pub_date = models.DateTimeField(auto_now_add = True)
 
+    def __str__(self):
+        return self.image_name
+
+    @classmethod
+    def get_images(cls):
+        images = cls.objects.all()
+        return images
+
 class Comment(models.Model):
     content = models.TextField()
     image = models.ForeignKey(Image, on_delete = models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.content
