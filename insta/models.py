@@ -11,7 +11,9 @@ class Image(models.Model):
     image_caption = models.TextField()
     profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
     likes = models.IntegerField()
+    pub_date = models.DateTimeField(auto_now_add = True)
 
 class Comment(models.Model):
     content = models.TextField()
     image = models.ForeignKey(Image, on_delete = models.CASCADE)
+    pub_date = models.DateTimeField(auto_now_add = True)
