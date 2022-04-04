@@ -1,0 +1,31 @@
+{% extends 'django_registration/base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid my-5">
+  <div class="container-xxl">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4">
+        <div class="card p-4">
+          <div class="card-body text-center">
+            <img src="{% static 'images/insta_logo_50px.png' %}" alt="Instagram logo">
+            <h5 class="px-3 text-muted">Sign up to see photos and videos from your friends.</h4>
+  
+            <form action="/accounts/register" method="post">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+              </div>
+  
+              <input type="hidden" name="next" value="{{next}}">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+{% endblock %}
