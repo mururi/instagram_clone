@@ -1,0 +1,20 @@
+{% load static %}
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-xxl">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/insta_logo_30px.png' %}" alt="Instagram logo">
+    </a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div>
+      <i class="bi bi-house-door-fill"></i>
+      <i class="bi bi-messenger"></i>
+      <i class="bi bi-plus-square-fill"></i>
+      <i class="bi bi-compass-fill"></i>
+      <i class="bi bi-heart-fill"></i>
+    </div>
+  </div>
+</nav>
