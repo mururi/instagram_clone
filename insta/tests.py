@@ -58,4 +58,9 @@ class ImageTestClass(TestCase):
         self.new_image = Image(id = 1, image_name = 'Image Name', image_caption = 'Test Caption', profile = self.new_profile)
         self.new_image.save()
 
-    
+    def test_instance(self):
+        '''
+        test_instance method to test if the new_image object is an instance of the Image model
+        '''
+
+        self.assertTrue(isinstance(self.new_image, Image))
