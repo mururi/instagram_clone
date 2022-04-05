@@ -1,6 +1,7 @@
-{% extends 'django_registration/base.html' %}
+{% extends 'registration/base.html' %}
 {% load bootstrap5 %}
 {% load static %}
+
 
 {% block content %}
 <div class="container-fluid my-5">
@@ -13,7 +14,7 @@
         <div class="card p-4 my-2">
           <div class="card-body text-center">
             <img src="{% static 'images/insta_logo_50px.png' %}" alt="Instagram logo">
-            <form action="/accounts/register" method="post">
+            <form method="post">
               {% csrf_token %}
               {% bootstrap_form form %}
               <div class="form-group">
@@ -27,7 +28,7 @@
 
         <div class="card p-3 my-2">
           <div class="card-body text-center">
-            <p class="mb-0">Don't have an account? <a href="/accounts/register">Sign up</a></p>
+            <p class="mb-0">Don't have an account? <a href="/register">Sign up</a></p>
           </div>
         </div>
       </div>

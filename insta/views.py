@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterForm
 
-@login_required(login_url = 'accounts/login/')
+@login_required(login_url = 'login/')
 def home(request):
     images = Image.get_images()
     return render(request, 'index.html', {"images": images})
