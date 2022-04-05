@@ -6,6 +6,24 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'profile/')
     bio = models.TextField()
 
+    def save_profile(self):
+        self.save()
+
+    @classmethod
+    def delete_profile(cls, id):
+        '''
+        Method to delete a Profile object
+        '''
+        cls.objects.filter(id = id).delete()
+
+    @classmethod
+    def get_profiles(cls):
+        '''
+        Method to get all profile objects
+        '''
+        profiles = cls.objects.all()
+        return profiles
+
     def __str__(self):
         return self.user.username
 
@@ -18,14 +36,39 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
+    
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def delete_image(cls, id):
+        '''
+        Method to delete an Image object
+        '''
+
+        cls.objects.filter(id = id).delete()
+
+    @classmethod
+    def get_images(cls):
+        '''
+        method to get all Image objects
+        '''
+        images = cls.objects.all()
+        return images
+
+    @classmethod
+    def update_image(cls, id):
+        pass
+
+    @classmethod
+    def search_image(cls, search_term):
+        images = cls.objects.filter(image_caption__icontains = search_term)
+        return images
 
     def __str__(self):
         return self.image_name
 
-    @classmethod
-    def get_images(cls):
-        images = cls.objects.all()
-        return images
+    
 
 class Comment(models.Model):
     content = models.TextField()
