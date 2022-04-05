@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Profile(models.Model):
-    name = models.CharField(max_length = 100)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
     profile_photo = models.ImageField(upload_to = 'profile/')
     bio = models.TextField()
 
@@ -13,7 +14,6 @@ class Image(models.Model):
     image_name = models.CharField(max_length = 60)
     image_caption = models.TextField()
     profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
-    likes = models.IntegerField()
     pub_date = models.DateTimeField(auto_now_add = True)
 
     class Meta:
@@ -34,3 +34,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    image = models.ForeignKey(Image, on_delete = models.CASCADE)
+    like_date = models.DateTimeField(auto_now_add = True)
