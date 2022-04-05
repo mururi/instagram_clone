@@ -12,7 +12,7 @@
             <img src="{% static 'images/insta_logo_50px.png' %}" alt="Instagram logo">
             <h5 class="px-3 text-muted">Sign up to see photos and videos from your friends.</h4>
   
-            <form action="" method="post">
+            <form method="post">
               {% csrf_token %}
               {% bootstrap_form form %}
               <div class="form-group">
