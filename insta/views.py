@@ -7,3 +7,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     images = Image.get_images()
     return render(request, 'index.html', {"images": images})
+
+def register(request):
+    pass
