@@ -31,3 +31,7 @@ class ProfileTestClass(TestCase):
         Profile.delete_profile(self.new_profile.id)
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) == 0)
+
+    def test_get_profiles(self):
+        profiles = Profile.get_profiles()
+        self.assertTrue(len(profiles > 0))
