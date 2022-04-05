@@ -16,6 +16,9 @@ class Image(models.Model):
     likes = models.IntegerField()
     pub_date = models.DateTimeField(auto_now_add = True)
 
+    class Meta:
+        ordering = ['-pub_date']
+
     def __str__(self):
         return self.image_name
 
