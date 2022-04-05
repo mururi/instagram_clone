@@ -4,3 +4,7 @@
 * {
   font-family: 'Open Sans', sans-serif;
 }
+
+.wrapper {
+  min-height: 100vh;
+}
