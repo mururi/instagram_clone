@@ -35,3 +35,27 @@ class ProfileTestClass(TestCase):
     def test_get_profiles(self):
         profiles = Profile.get_profiles()
         self.assertTrue(len(profiles > 0))
+
+class ImageTestClass(TestCase):
+    '''
+    Test class to test the behavior of the Image model class
+    '''
+
+    def setUp(self):
+        '''
+        set up method to run before each test case
+        '''
+
+        # Creating a new user
+        self.new_user = User(username = 'Doe', password = 'pass', email = 'johndoe@company.com')
+        self.new_user.save()
+
+        # Creating a new profile
+        self.new_profile = Profile(id = 1, user = self.new_user, bio = 'Test short bio')
+        self.new_profile.save()
+
+        # Creating a new image
+        self.new_image = Image(id = 1, image_name = 'Image Name', image_caption = 'Test Caption', profile = self.new_profile)
+        self.new_image.save()
+
+    
