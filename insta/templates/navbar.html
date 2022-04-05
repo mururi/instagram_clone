@@ -14,12 +14,24 @@
       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
     </div> -->
     <div>
-      <i class="bi bi-house-door-fill"></i>
-      <i class="bi bi-messenger"></i>
-      <i class="bi bi-plus-square-fill"></i>
-      <i class="bi bi-compass-fill"></i>
-      <i class="bi bi-heart-fill"></i>
-      <img src="{{ }}" alt="">
+      <i class="bi bi-house-door-fill" style="font-size: 24px; color: #262626; margin-left: 22px;"></i>
+      <i class="bi bi-messenger" style="font-size: 24px; color: #262626; margin-left: 22px;"></i>
+      <i class="bi bi-plus-square-fill" style="font-size: 24px; color: #262626; margin-left: 22px;"></i>
+      <i class="bi bi-compass-fill" style="font-size: 24px; color: #262626; margin-left: 22px;"></i>
+      <i class="bi bi-heart-fill" style="font-size: 24px; color: #262626; margin-left: 22px;"></i>
+      
+      <div class="btn-group">
+        <button class="btn dropdown-toggle button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="nav-profile dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style=" margin-left: 22px;">
+            <img src="{{ user.profile.profile_photo.url }}" alt="">
+          </div>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="logout/">Log Out</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

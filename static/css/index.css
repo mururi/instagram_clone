@@ -4,3 +4,21 @@
 * {
   font-family: 'Open Sans', sans-serif;
 }
+
+.nav-profile {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.nav-profile img {
+  width: auto;
+  height: 100%;
+}
+
+#button {
+  outline: none !important;  
+}
