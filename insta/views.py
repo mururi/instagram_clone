@@ -22,12 +22,16 @@ def register(request):
         form = RegisterForm()
     return render(request, 'registration/register.html', {"form": form})
 
+@login_required(login_url = 'login/')
 def create_post(request):
+    current_user = request.user
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=False)
-            
-
-    form = PostForm()
+            image = form.save(commit=False)
+            image.profile = current_user.profile
+            image.save()
+        return redirect('home')
+    else:
+        form = PostForm()
     return render(request, 'create-post.html', {"form": form})
