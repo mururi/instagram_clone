@@ -16,7 +16,7 @@ This is an Instagram clone created using Django.
 Ensure that your device of choice has a browser installed.
 Click the link provided below to view the site.
 
-https://
+https://insta-clone-mururi.herokuapp.com/
 
 ### Using the App
 The user can navigate the web app easily and be able to:
