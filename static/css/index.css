@@ -5,6 +5,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+html {
+  min-height: 100vh;
+}
 .nav-profile {
   display: inline-block;
   position: relative;

@@ -4,7 +4,7 @@ from .models import Image
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegisterForm
+from .forms import RegisterForm, PostForm
 
 @login_required(login_url = 'login/')
 def home(request):
@@ -21,3 +21,13 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'registration/register.html', {"form": form})
+
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            
+
+    form = PostForm()
+    return render(request, 'create-post.html', {"form": form})
